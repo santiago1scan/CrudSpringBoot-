@@ -7,17 +7,17 @@ public interface InterfaceRepositoryBuy {
      * @Brief  eliminar una unidad del comic a la comra
      *  @param idComic identificador del comic a asignar
      * @param idBuy identificador unico de la compra
-     * @return true: borrado de la unindad del comic del coarrito exitosa false: caso contrario
+     * @return BuyEntity: borrado de la unindad del comic del coarrito exitosa Null: caso contrario
      */
-    boolean deleteBuy(String idBuy, String idComic);
+    BuyEntity deleteBuy(String idBuy, String idComic);
     /**
      * @brief añadir una unidad del comic a la  compra s
      * @param idBuy   identificador unico de la compra
      * @param idComic identificador del comic a asignar
-     * @return true: añadir la unindad del comic al coarrito exitosa false: caso contrario
+     * @return BuyEntity: añadir la unindad del comic al coarrito exitosa Null: caso contrario
      * @brief agregar una unidad del comic al carrito de compras
      */
-    boolean addBuy(String idBuy, String idComic);
+    BuyEntity addBuy(String idBuy, String idComic);
 
     /**
      * @Brief realizar compra confirmada
