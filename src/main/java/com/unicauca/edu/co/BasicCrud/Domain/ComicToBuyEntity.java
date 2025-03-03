@@ -7,51 +7,50 @@ public class ComicToBuyEntity {
      * Santiago Escandon
      * Miguel Angel Calambaz
      */
-    private String idComic;
-    private String nameComic;
-    private int editionComic;
+    private ComicEntity comicEntity;
     private int cantComics;
+    private float priceBuy;
 
 
     /**
-     * @Brief constructor de  comic
-     * @param idComic idCoimic String identificador del comic
-     * @param nameComic  Stirng nombre del comic
-     * @param editionComic editionComic edicion del comic
+     * @Brief constructor de  comicToBuy
      * @param cantComics canntidad de comics de esa referencia a comprar
+     * @param comicEntity Entidad del comic que se quiere comprar
+     * @param price precio de la compra en total del commic en especifico
      */
-    public ComicToBuyEntity(String idComic, String nameComic, int editionComic, int cantComics){
-        this.editionComic = editionComic;
-        this.nameComic = nameComic;
-        this.idComic = idComic;
+    public ComicToBuyEntity( int cantComics, ComicEntity comicEntity, float price){
+        this.priceBuy = price;
         this.cantComics = cantComics;
+        this.comicEntity = comicEntity;
     }
 
     /**
-     * @Brief  devuelve el nombre del comic
-     * @return nameComic (String)
+     * @Brief devuelve la enteidad del comic
+     * @return Comic de la compra
      */
-    public String getNameComic() {return nameComic;}
-    /**
-     * @Brief  devuelve la edicion del comic
-     * @return nameComic (String)
-     */
-    public int getEditionComic() {return editionComic;}
-    /**
-     * @Brief  asigana el nombre del comic
-     * @Param nameComic String  nombre del comic
-     * @return void
-     */
-    public void setNameComic(String nameComic) {this.nameComic = nameComic;}
-    /**
-     * @Brief  Asigna la edicion del comic
-     * @Param editionComic edicion del comic
-     */
-    public void setEditionComic(int editionComic) {this.editionComic = editionComic;}
+    public ComicEntity getComicEntity(){return this.comicEntity;}
 
+    /**
+     * @Brief Devuelve cantidad de unidades sosbre la referencia del comic
+     * @return cantida de unidades del comic
+     */
+    public int getCantComics(){return this.cantComics;}
+
+    /**
+     * @Brief Devuelve el preecio general sobere la referencia del comic en especial
+     * @return precio de la compra sobre los comics de esta referencia
+     */
+    public  float getPriceBuy(){return this.priceBuy;}
     /**
      * @brief  asigna cantidad de comics que se desa comprar de esa referencia
      * @param cantComics
      */
     public void setIdComic(int cantComics){this.cantComics =  cantComics;}
+
+    /**
+     * @Brief  asignar comic a la compra
+     * @param comicEntity
+     */
+    public void setCantComics(ComicEntity comicEntity){this.comicEntity = comicEntity;}
+
 }
