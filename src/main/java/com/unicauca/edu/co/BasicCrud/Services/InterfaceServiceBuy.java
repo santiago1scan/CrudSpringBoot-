@@ -4,6 +4,8 @@ import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
 
+import java.util.List;
+
 public interface InterfaceServiceBuy {
     /**
     ¨*@breaf añadir una uniad a un comic en especifico
@@ -19,6 +21,14 @@ public interface InterfaceServiceBuy {
      * @return ComicEntity: Se elimico el comic de la compra o Null en caso contario
      */
     ComicToBuyEntity deleteComicToBuy(String idComic, String idBuy);
+
+
+    /**
+     * @Brief Regresa la lista de los comics en la comrpra
+     * @param idBuy identificador de la compra
+     * @return lista de comics referenciados en la compra
+     */
+    List<ComicToBuyEntity> getListComicsOfBuy(String idBuy );
 
     /**
      * @Bief buscar el comic por medio dde su identificador

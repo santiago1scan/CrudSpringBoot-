@@ -6,6 +6,8 @@ import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class servicesBuy implements InterfaceServiceBuy {
 
@@ -21,6 +23,11 @@ public class servicesBuy implements InterfaceServiceBuy {
     @Override
     public ComicToBuyEntity deleteComicToBuy(String idComic, String idBuy) {
         return null;
+    }
+
+    @Override
+    public List<ComicToBuyEntity> getListComicsOfBuy(String idBuy) {
+        return List.of();
     }
 
     @Override

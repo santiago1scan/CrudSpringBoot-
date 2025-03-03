@@ -1,6 +1,10 @@
 package com.unicauca.edu.co.BasicCrud.Repostory;
 
 import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
+import com.unicauca.edu.co.BasicCrud.Domain.ComicEntity;
+import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
+
+import java.util.List;
 
 public interface InterfaceRepositoryBuy {
     /**
@@ -19,6 +23,13 @@ public interface InterfaceRepositoryBuy {
      */
     BuyEntity addBuy(String idBuy, String idComic);
 
+
+    /**
+     * @Brief Regresa la lista de los comics en la comrpra
+     * @param idBuy identificador de la compra
+     * @return lista de comics referenciados en la compra
+     */
+    List<ComicToBuyEntity> getListComicsOfBuy(String idBuy );
     /**
      * @Brief realizar compra confirmada
      * @param idBuy identirficador de la compra confirmada
@@ -26,3 +37,4 @@ public interface InterfaceRepositoryBuy {
      */
     BuyEntity makeBuy(String idBuy);
 }
+
