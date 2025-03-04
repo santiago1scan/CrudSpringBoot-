@@ -12,6 +12,7 @@ public class ComicToBuyEntity {
     private float priceBuy;
 
 
+
     /**
      * @Brief constructor de  comicToBuy
      * @param cantComics canntidad de comics de esa referencia a comprar

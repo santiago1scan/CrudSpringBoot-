@@ -1,7 +1,9 @@
 package com.unicauca.edu.co.BasicCrud.Domain;
 
+
 import java.util.ArrayList;
 import java.util.Date;
+
 
 public class BuyEntity {
     /**
