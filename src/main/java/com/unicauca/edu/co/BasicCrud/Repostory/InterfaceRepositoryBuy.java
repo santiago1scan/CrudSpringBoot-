@@ -3,10 +3,12 @@ package com.unicauca.edu.co.BasicCrud.Repostory;
 import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface InterfaceRepositoryBuy {
+@Repository
+public interface InterfaceRepositoryBuy   extends JpaRepository<BuyEntity, Long> {
     /**
      * @Brief  eliminar una unidad del comic a la comra
      *  @param idComic identificador del comic a asignar

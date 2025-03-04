@@ -1,15 +1,36 @@
 package com.unicauca.edu.co.BasicCrud.Domain;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name= "COMICENTITY")
 public class ComicEntity {
+    @Id
+    @Column(name = "id_comic")
     private String idComic;
+
+    @Column(name = "name_comic")
     private String nameComic;
+
+    @Column(name = "edition_comic")
     private int editionComic;
+
+    @Column(name = "description_comic")
     private String descriptionComic;
+
+    @Column(name = "publish_date")
+    @Temporal(TemporalType.DATE)
     private Date publishDate;
+
+    @Column(name = "price")
     private float price;
 
+
+    public ComicEntity(){
+
+    }
     /**
      * @Brief constructor de comic Entity
      * @param idComic identificador del comic

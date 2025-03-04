@@ -1,17 +1,29 @@
 package com.unicauca.edu.co.BasicCrud.Domain;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name="COMICTOBUYENTITY")
 public class ComicToBuyEntity {
-    /**
-     * Authors:
-     * Julian David Meneses
-     * Santiago Escandon
-     * Miguel Angel Calambaz
-     */
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria autogenerada
+    private Long id; // Agrega un campo para la clave primaria
+
+    @ManyToOne // Relación muchos a uno con ComicEntity
+    @JoinColumn(name = "comic_id") // Clave foránea en COMICTOBUYENTITY
     private ComicEntity comicEntity;
+
+    @Column(name = "cant_comics")
     private int cantComics;
+
+    @Column(name = "price_buy")
     private float priceBuy;
 
+    public  ComicToBuyEntity(){
 
+    }
 
     /**
      * @Brief constructor de  comicToBuy
@@ -46,12 +58,12 @@ public class ComicToBuyEntity {
      * @brief  asigna cantidad de comics que se desa comprar de esa referencia
      * @param cantComics
      */
-    public void setIdComic(int cantComics){this.cantComics =  cantComics;}
+    public void setCantComics(int cantComics){this.cantComics =  cantComics;}
 
     /**
      * @Brief  asignar comic a la compra
      * @param comicEntity
      */
-    public void setCantComics(ComicEntity comicEntity){this.comicEntity = comicEntity;}
+    public void setComicEntity(ComicEntity comicEntity){this.comicEntity = comicEntity;}
 
 }

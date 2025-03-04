@@ -1,10 +1,14 @@
 package com.unicauca.edu.co.BasicCrud.Domain;
 
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-
+@Entity
+@Table(name= "BUYENTITY")
 public class BuyEntity {
     /**
      * Authors:
@@ -12,14 +16,30 @@ public class BuyEntity {
      * Santiago Escandon
      * Miguel Angel Calambaz
      */
+    @Id
+    @Column(name = "id_buy")
     private String idBuy;
-    private  ArrayList<ComicToBuyEntity> listComicsTobuy= new ArrayList<ComicToBuyEntity>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "buy_id")
+    private List<ComicToBuyEntity> listComicsTobuy;
+
+    @Column(name = "name_client")
     private String nameClient;
+
+    @Column(name = "means_payment")
     private String meansPayment;
+
+    @Column(name = "buy_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date buyhDate;
 
+    // Constructor sin argumentos (requerido por JPA)
+    public BuyEntity() {
+    }
+
     /**
-     * @brief Cosntructor de compra
+     *  Cosntructor de compra
      * @param idBuy identificador de la compra
      * @param listComicsTobuy lista de comics que se desa comprar
      * @param nameClient nombre de clientes
@@ -35,62 +55,62 @@ public class BuyEntity {
     }
 
     /**
-     * @Brief Getter de buy
+     * Getter de buy
      * @return idBuy identeificador del buy
      */
     public String getIdBuy() {return idBuy;}
 
     /**
-     * @Brief getter listOfcomics
+     *  getter listOfcomics
      * @return lista de los comics a comprar
      */
-    public ArrayList<ComicToBuyEntity> getListComicsTobuy() {return listComicsTobuy;}
+    public List<ComicToBuyEntity> getListComicsTobuy() {return listComicsTobuy;}
 
     /**
-     * @Brief obtener nombre del cliente
+     *  obtener nombre del cliente
      * @return nombre cliente (String)
      */
     public String getNameClient() {return nameClient;}
 
     /**
-     * @Brief Obtener metodod de pago
+     *  Obtener metodod de pago
      * @return Metodo de pago (String)
      */
     public String getMeansPayment() {return meansPayment;}
 
     /**
-     * @Brief Obtener fecha de compra
+     *  Obtener fecha de compra
      * @return fecha de compra (Date)
      */
     public Date getBuyhDate() {return buyhDate;}
 
     /**
-     * @Brief Asignar fecha de compra
+     *  Asignar fecha de compra
      * @param buyhDate fecah de compra
      */
     public void setBuyhDate(Date buyhDate) {this.buyhDate = buyhDate;}
 
     /**
-     * @Brief Asignar  id de la compra
+     *  Asignar  id de la compra
      * @param idBuy id de la compra
      */
     public void setIdBuy(String idBuy) {this.idBuy = idBuy;}
 
     /**
-     * @Brief asignar comics a comprar
+     *  asignar comics a comprar
      * @param listComicsTobuy lista de comics a comprar
      */
 
     public void setListComicsTobuy(ArrayList<ComicToBuyEntity> listComicsTobuy) {this.listComicsTobuy = listComicsTobuy;}
 
     /**
-     * @Brief Asignar nombre del cliente
+     *  Asignar nombre del cliente
      * @param nameClient nombre del cliente
      */
     public void setNameClient(String nameClient) {this.nameClient = nameClient;}
 
     /**
-     * @Brief Asignar metodod de pago
+     * Asignar metodod de pago
      * @param meansPayment metodo de pago
      */
     public void setMeansPayment(String meansPayment) {this.meansPayment = meansPayment;}
