@@ -14,6 +14,7 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -28,7 +29,6 @@ public class BuyEntity {
      */
     @Id
     @Column(name = "id_buy")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String idBuy;
 
     /**
@@ -61,4 +61,8 @@ public class BuyEntity {
     public BuyEntity() {
     }
 
+    @PrePersist
+    public void generateId() {
+        this.idBuy = UUID.randomUUID().toString();
+    }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -19,7 +20,6 @@ public class ComicEntity {
      */
     @Id
     @Column(name = "id_comic")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String idComic;
 
     /**
@@ -62,5 +62,10 @@ public class ComicEntity {
 
     public ComicEntity(){
 
+    }
+
+    @PrePersist
+    public void generateId() {
+        this.idComic = UUID.randomUUID().toString();
     }
 }
