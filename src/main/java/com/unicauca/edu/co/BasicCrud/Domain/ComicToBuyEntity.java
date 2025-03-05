@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class ComicToBuyEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria autogenerada
+    @GeneratedValue(strategy = GenerationType.AUTO) // Clave primaria autogenerada
     private Long id; // Agrega un campo para la clave primaria
 
     @ManyToOne // Relación muchos a uno con ComicEntity
