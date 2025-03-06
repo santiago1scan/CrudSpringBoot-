@@ -1,7 +1,7 @@
 package com.unicauca.edu.co.BasicCrud.Controller;
 
 import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
-import com.unicauca.edu.co.BasicCrud.Services.InterfaceServiceBuy;
+import com.unicauca.edu.co.BasicCrud.Services.IServiceBuy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/buy")
 public class BuyController {
 
-    private  InterfaceServiceBuy serviceyBuy;
+    private IServiceBuy serviceyBuy;
 
     /**
      *
      * @param serviceBuy inteface de los serviicos de compra
      */
     @Autowired
-    public BuyController(InterfaceServiceBuy serviceBuy){
+    public BuyController(IServiceBuy serviceBuy){
         this.serviceyBuy = serviceBuy;
     }
 

@@ -3,18 +3,19 @@ package com.unicauca.edu.co.BasicCrud.Services;
 import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicEntity;
 import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
-import com.unicauca.edu.co.BasicCrud.Repostory.InterfaceRepositoryBuy;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.unicauca.edu.co.BasicCrud.Repostory.IRepositoryBuy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class servicesBuy implements InterfaceServiceBuy {
+public class servicesBuy implements IServiceBuy {
 
+    private final IRepositoryBuy repositoryBuy;
 
-    @Autowired
-    private InterfaceRepositoryBuy repositoryBuy;
+    public servicesBuy(IRepositoryBuy repositoryBuy) {
+        this.repositoryBuy = repositoryBuy;
+    }
 
     @Override
     public ComicToBuyEntity addComicToBuy(String idComic, String idBuy) {

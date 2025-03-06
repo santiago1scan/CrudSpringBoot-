@@ -6,9 +6,9 @@ import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
 
 import java.util.List;
 
-public interface InterfaceServiceBuy {
+public interface IServiceBuy {
     /**
-    ¨*@breaf añadir una uniad a un comic en especifico
+    ¨* @breaf añadir una uniad a un comic en especifico
      * @param idComic id del comic a agregar
      * @param idBuy id de la compra
      * @return ComicEntity: Se asingo el comci a la compra o Null en caso contario
