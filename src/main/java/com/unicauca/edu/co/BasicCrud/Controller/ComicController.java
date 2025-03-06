@@ -48,10 +48,10 @@ public class ComicController {
     }
 
     @DeleteMapping("/{idComic}")
-    public ComicEntity deleteComic(@PathVariable String idComic) throws Exception {
+    public boolean deleteComic(@PathVariable String idComic) throws Exception {
         ComicEntity response = servicecomic.deleteComic(idComic);
         if(response == null)
             throw new Exception("Not found");
-        return response;
+        return true;
     }
 }
