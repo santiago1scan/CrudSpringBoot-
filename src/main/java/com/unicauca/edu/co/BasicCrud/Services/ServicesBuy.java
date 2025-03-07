@@ -34,25 +34,26 @@ public class ServicesBuy implements IServiceBuy {
     @Override
     public ComicToBuyEntity addComicToBuy(String idComic, String idBuy, int quantity) {
         Optional<BuyEntity> optionalBuy = repositoryBuy.findById(idBuy);
+        if(optionalBuy.isEmpty())
+            throw new RuntimeException("Buy doesn't not exist");
         Optional<ComicEntity> optionalComic = repositoryComic.findById(idComic);
+        if(optionalComic.isEmpty())
+            throw new RuntimeException("Comic doesn't exist");
 
-        if (optionalBuy.isPresent() && optionalComic.isPresent()) {
-            BuyEntity buy = optionalBuy.get();
-            ComicEntity comic = optionalComic.get();
+        BuyEntity buy = optionalBuy.get();
+        ComicEntity comic = optionalComic.get();
 
-            ComicToBuyEntity comicToBuy = new ComicToBuyEntity();
-            comicToBuy.setBuyEntity(buy);
-            comicToBuy.setComicEntity(comic);
-            comicToBuy.setCantComics(quantity);
-            comicToBuy.setPriceBuy(comic.getPrice() * quantity);
+        ComicToBuyEntity comicToBuy = new ComicToBuyEntity();
+        comicToBuy.setBuyEntity(buy);
+        comicToBuy.setComicEntity(comic);
+        comicToBuy.setCantComics(quantity);
+        comicToBuy.setPriceBuy(comic.getPrice() * quantity);
 
-            repositoryComicToBuy.save(comicToBuy);
+        repositoryComicToBuy.save(comicToBuy);
 
-            buy.getListComicsToBuy().add(comicToBuy);
-            repositoryBuy.save(buy);
-            return comicToBuy;
-        }
-        return null;
+        buy.getListComicsToBuy().add(comicToBuy);
+        repositoryBuy.save(buy);
+        return comicToBuy;
     }
 
     @Override

@@ -17,7 +17,6 @@ public class BuyController {
      *
      * @param serviceBuy inteface de los serviicos de compra
      */
-    @Autowired
     public BuyController(IServiceBuy serviceBuy){
         this.serviceyBuy = serviceBuy;
     }
@@ -53,12 +52,15 @@ public class BuyController {
      * @param idComic identificado del comic a eliminar
      * @return ResponseEntity<BuyEntity>
      */
-    @DeleteMapping("/comic/{idBuy}-{idComic}")
+    @DeleteMapping("/comic/{idBuy}/{idComic}")
     public ComicToBuyEntity deleteComicOfBuy(
             @PathVariable String idBuy,
             @PathVariable String idComic
     ){
-        return serviceyBuy.deleteComicToBuy(idComic, idBuy);
+        ComicToBuyEntity response = serviceyBuy.deleteComicToBuy(idComic, idBuy);
+        if(response == null)
+            throw new RuntimeException("Comic with id " + idBuy + " was deleted");
+        return response;
     }
 
     /**
@@ -67,13 +69,17 @@ public class BuyController {
      * @param idComic identificador del comic a eliminar unidad de la compra
      * @return
      */
-    @PutMapping("/comic/{idBuy}-{idComic}/{quantity}")
+    @PutMapping("/comic/{idBuy}/{idComic}/{quantity}")
     public  ComicToBuyEntity addComicToBUy(
             @PathVariable String idBuy,
             @PathVariable String idComic,
             @PathVariable int quantity
-    ){
-        return serviceyBuy.addComicToBuy(idComic, idBuy,quantity);
+    ) throws Exception {
+        ComicToBuyEntity response = serviceyBuy.addComicToBuy(idComic, idBuy,quantity);
+        if( response== null){
+            throw new Exception("Impossible to save");
+        }
+        return response;
     }
 
 }
