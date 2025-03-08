@@ -1,6 +1,7 @@
 package com.unicauca.edu.co.BasicCrud.Controller;
 
 import com.unicauca.edu.co.BasicCrud.Domain.BuyEntity;
+import com.unicauca.edu.co.BasicCrud.Domain.ComicToBuyEntity;
 import com.unicauca.edu.co.BasicCrud.Services.IServiceBuy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,21 +17,21 @@ public class BuyController {
      *
      * @param serviceBuy inteface de los serviicos de compra
      */
-    @Autowired
     public BuyController(IServiceBuy serviceBuy){
         this.serviceyBuy = serviceBuy;
     }
 
+
     /**
-     * Brief crea la compra
-     * @param idBuy identrficador de la compra
-     * @return ResponseEntity<BuyEntity>
+     * Create a buy in db
+     * @param buyEntity buy to create
+     * @return return the entity created
      */
-    @PostMapping("/buy/makeBuy/{idBuy}")
-    public ResponseEntity<BuyEntity> makeBUy(
-            @PathVariable String idBuy
+    @PostMapping
+    public BuyEntity createBuy(
+            @RequestBody BuyEntity buyEntity
     ){
-        return null;
+        return serviceyBuy.createBuy(buyEntity);
     }
 
     /**
@@ -38,11 +39,11 @@ public class BuyController {
      * @param idBuy identificador de la compra
      * @return ResponseEntity<BuyEntity>
      */
-    @GetMapping("/buy/getBuy/{idBuy}")
-    public ResponseEntity<BuyEntity> getBuy(
+    @GetMapping("/{idBuy}")
+    public BuyEntity getBuy(
             @PathVariable String idBuy
     ){
-        return null;
+        return serviceyBuy.getBuy(idBuy);
     }
 
     /**
@@ -51,12 +52,15 @@ public class BuyController {
      * @param idComic identificado del comic a eliminar
      * @return ResponseEntity<BuyEntity>
      */
-    @DeleteMapping("buy/comic/delete/{idBuy}/")
-    public ResponseEntity<BuyEntity> deleteComicOfBuy(
+    @DeleteMapping("/comic/{idBuy}/{idComic}")
+    public ComicToBuyEntity deleteComicOfBuy(
             @PathVariable String idBuy,
-            @RequestBody String idComic
+            @PathVariable String idComic
     ){
-        return null;
+        ComicToBuyEntity response = serviceyBuy.deleteComicToBuy(idComic, idBuy);
+        if(response == null)
+            throw new RuntimeException("Comic with id " + idBuy + " was deleted");
+        return response;
     }
 
     /**
@@ -65,12 +69,17 @@ public class BuyController {
      * @param idComic identificador del comic a eliminar unidad de la compra
      * @return
      */
-    @PutMapping("/buy/comic/addComic/{idBuy}")
-    public  ResponseEntity<BuyEntity> addComicToBUy(
+    @PutMapping("/comic/{idBuy}/{idComic}/{quantity}")
+    public  ComicToBuyEntity addComicToBUy(
             @PathVariable String idBuy,
-            @RequestBody String idComic
-    ){
-        return null;
+            @PathVariable String idComic,
+            @PathVariable int quantity
+    ) throws Exception {
+        ComicToBuyEntity response = serviceyBuy.addComicToBuy(idComic, idBuy,quantity);
+        if( response== null){
+            throw new Exception("Impossible to save");
+        }
+        return response;
     }
 
 }

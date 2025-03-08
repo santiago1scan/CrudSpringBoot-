@@ -7,6 +7,7 @@
 
 package com.unicauca.edu.co.BasicCrud.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,7 @@ public class ComicToBuyEntity {
      */
     @ManyToOne
     @JoinColumn(name = "comic_id")
+    @JsonIgnore
     private ComicEntity comicEntity;
 
     /**
@@ -46,6 +48,7 @@ public class ComicToBuyEntity {
      */
     @ManyToOne
     @JoinColumn(name = "buy_id", nullable = false)
+    @JsonIgnore
     private BuyEntity buyEntity;
 
     /**

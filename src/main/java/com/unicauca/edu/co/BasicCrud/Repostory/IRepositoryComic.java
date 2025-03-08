@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface IRepositoryComic extends JpaRepository<ComicEntity, Long> {
+public interface IRepositoryComic extends JpaRepository<ComicEntity, String> {
     /**
      * Custom Find By ID - To find by id of the comic
      * @param idComic ID of the comic

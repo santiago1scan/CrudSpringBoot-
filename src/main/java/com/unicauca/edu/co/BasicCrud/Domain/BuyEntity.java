@@ -35,7 +35,7 @@ public class BuyEntity {
      * Relation on to many with ComicToBuyEntity
      * List of comics of the buy
      */
-    @OneToMany(mappedBy = "buyEntity")
+    @OneToMany(mappedBy = "buyEntity", fetch = FetchType.EAGER)
     private List<ComicToBuyEntity> listComicsToBuy;
 
     /**
