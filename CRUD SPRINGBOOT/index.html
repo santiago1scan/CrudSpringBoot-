@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Cómics</title>
+    <script src="logic.js"></script>
+</head>
+<body>
+    <h1>CRUD de Cómics</h1>
+    
+    <h2>Listar Cómics</h2>
+    <button onclick="listComics()">Cargar Cómics</button>
+    <ul id="comicList"></ul>
+    
+    <h2>Crear Cómic</h2>
+    <input type="text" id="nameComic" placeholder="Nombre del cómic">
+    <input type="number" id="editionComic" placeholder="Ediciones">
+    <input type="text" id="descriptionComic" placeholder="Descripción">
+    <input type="date" id="publishDate">
+    <input type="number" id="price" placeholder="Precio">
+    <button onclick="createComic()">Crear</button>
+    
+    <h2>Actualizar Cómic</h2>
+    <input type="text" id="comicId" placeholder="ID del cómic">
+    <input type="text" id="updateNameComic" placeholder="Nombre del cómic">
+    <input type="number" id="updateEditionComic" placeholder="Ediciones">
+    <input type="text" id="updateDescriptionComic" placeholder="Descripción">
+    <input type="date" id="updatePublishDate">
+    <input type="number" id="updatePrice" placeholder="Precio">
+    <button onclick="updateComic()">Actualizar</button>
+    
+    <h2>Eliminar Cómic</h2>
+    <input type="text" id="deleteComicId" placeholder="ID del cómic">
+    <button onclick="deleteComic()">Eliminar</button>
+    
+    
+</body>
+</html>
