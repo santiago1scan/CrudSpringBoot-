@@ -63,6 +63,30 @@
             </div>
 
         </main>
+
+        <h2>Crear Compra</h2>
+        <input type="text" id="nameClient" placeholder="Nombre del cliente">
+        <input type="text" id="meansPayment" placeholder="Método de pago">
+        <button onclick="createBuy()">Crear Compra</button>
+        <p id="buyIdDisplay"></p>
+        
+        <h2>Listar Compra</h2>
+        <input type="text" id="buyId" placeholder="ID de la compra">
+        <button onclick="listBuy()">Ver Compra</button>
+        <ul id="buyList"></ul>
+
+        <h2>Agregar Cómic a Compra</h2>
+        <input type="text" id="buyIdAdd" placeholder="ID de la compra">
+        <input type="text" id="comicIdAdd" placeholder="ID del cómic">
+        <input type="number" id="cantComics" placeholder="Cantidad de cómics">
+        <button onclick="addComicToBuy()">Agregar Cómic a Compra</button>
+        <p id="addComicResult"></p>
+        
+        <h2>Eliminar Cómic de Compra</h2>
+        <input type="text" id="buyIdDelete" placeholder="ID de la compra">
+        <input type="text" id="comicIdDelete" placeholder="ID del cómic">
+        <button onclick="deleteComicFromBuy()">Eliminar Cómic de Compra</button>
+        <p id="deleteComicResult"></p>
     </div>
 </div>
 </body>

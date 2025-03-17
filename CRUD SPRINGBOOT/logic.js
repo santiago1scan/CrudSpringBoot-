@@ -1,4 +1,5 @@
 const API_URL = 'http://localhost:8080/api/comic';
+const BUY_API_URL = 'http://localhost:8080/api/buy';
 
 
 async function listComics() {
@@ -64,4 +65,67 @@ async function deleteComic() {
     const id = document.getElementById('deleteComicId').value;
     await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
     listComics();
+}
+
+async function createBuy() {
+    const today = new Date();
+    const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    
+    const buy = {
+        nameClient: document.getElementById('nameClient').value,
+        meansPayment: document.getElementById('meansPayment').value,
+        buyhDate: formattedDate
+    };
+    const response = await fetch(BUY_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buy)
+    });
+    const data = await response.json();
+    document.getElementById('buyIdDisplay').textContent = `Compra creada con ID: ${data.idBuy}`;
+}
+
+async function listBuy() {
+    const id = document.getElementById('buyId').value;
+    const response = await fetch(`${BUY_API_URL}/${id}`);
+    const buy = await response.json();
+    const list = document.getElementById('buyList');
+    list.innerHTML = '';
+    let item = document.createElement('li');
+    const formattedDate = buy.buyhDate ? buy.buyhDate.split('T')[0] : 'Fecha no disponible';
+    item.innerHTML = `<strong>ID:</strong> ${buy.idBuy} <br>
+                      <strong>Cliente:</strong> ${buy.nameClient} <br>
+                      <strong>Método de pago:</strong> ${buy.meansPayment} <br>
+                      <strong>Fecha:</strong> ${formattedDate} <br>
+                      <strong>Cómics Comprados:</strong> ${buy.listComicsToBuy.length > 0 ? buy.listComicsToBuy.map(comic => `<br> - ID: ${comic.id} - Cantidad: ${comic.cantComics} - Precio: ${comic.priceBuy}`).join('') : 'Ninguno'}`;
+    list.appendChild(item);
+}
+
+
+async function addComicToBuy() {
+    const buyId = document.getElementById('buyIdAdd').value;
+    const comicId = document.getElementById('comicIdAdd').value;
+    const cantComics = parseInt(document.getElementById('cantComics').value);
+    
+    const response = await fetch(`${BUY_API_URL}/comic/${buyId}/${comicId}/${cantComics}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await response.json();
+    document.getElementById('addComicResult').textContent = `Cómic agregado: ID: ${data.id}, Cantidad: ${data.cantComics}, Precio: ${data.priceBuy}`;
+}
+
+
+async function deleteComicFromBuy() {
+    const buyId = document.getElementById('buyIdDelete').value;
+    const comicId = document.getElementById('comicIdDelete').value;
+    const response = await fetch(`${BUY_API_URL}/comic/${buyId}/${comicId}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        document.getElementById('deleteComicResult').textContent = `Cómic eliminado: ID: ${data.id}, Cantidad: ${data.cantComics}, Precio: ${data.priceBuy}`;
+    } else {
+        document.getElementById('deleteComicResult').textContent = `Error: El cómic no se encontró en la compra.`;
+    }
 }
