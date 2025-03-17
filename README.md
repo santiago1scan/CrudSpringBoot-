@@ -20,9 +20,9 @@ Swagger (Para documentación de APIs)
 
 
 
-📌 Endpoints Principales
+#Endpoints Principales
 
-📌 Endpoints de Compras (BuyController)
+## Endpoints de Compras (BuyController)
 
 POST /api/buy → Crea una nueva compra.
 
@@ -32,7 +32,7 @@ DELETE /api/buy/comic/{idBuy}/{idComic} → Elimina un cómic de una compra espe
 
 PUT /api/buy/comic/{idBuy}/{idComic}/{quantity} → Agrega unidades de un cómic a una compra.
 
-📌 Endpoints de Cómics (ComicController)
+#Endpoints de Cómics (ComicController)
 
 POST /api/comic → Crea un nuevo cómic.
 
