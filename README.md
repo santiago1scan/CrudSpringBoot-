@@ -1,7 +1,7 @@
 
 ## Descripción
 
-Comics CRUD es una aplicación desarrollada en Java utilizando Spring Boot para la gestión de cómics. Permite realizar operaciones de Crear, Leer, Actualizar y Eliminar (CRUD) sobre una base de datos de cómics.
+Comics CrudSpringBoot es una aplicación desarrollada en Java utilizando Spring Boot para la gestión de cómics. Permite realizar operaciones de Crear, Leer, Actualizar y Eliminar (CRUD) sobre una base de datos de cómics.
 
 ### Tecnologías Utilizadas
 
