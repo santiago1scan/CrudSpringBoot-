@@ -116,6 +116,7 @@ async function addComicToBuy() {
 }
 
 
+
 async function deleteComicFromBuy() {
     const buyId = document.getElementById('buyIdDelete').value;
     const comicId = document.getElementById('comicIdDelete').value;

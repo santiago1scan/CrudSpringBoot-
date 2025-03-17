@@ -9,24 +9,25 @@
     background-color: rgb(151, 151, 151);
 }
 form{
-    width: 80%;
-    height: 400px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1%;
-    padding: 3%;
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    flex-wrap: nowrap;
-    -webkit-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
-    box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+
 }
 input{
     margin: 2%;
 }
 .formulario{
     margin: 100px;
+        width: 40%;
+        height: 500px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 1%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-wrap: nowrap;
+        -webkit-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+        -moz-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+        box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
 }
 li{
     margin: 10px;
@@ -79,4 +80,9 @@ li{
     -webkit-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
     
+}
+#comicList {
+    margin: 10px;
+    overflow: auto;
+    height: 50%;
 }

@@ -21,19 +21,18 @@
     <h1>CRUD de Cómics</h1>
 </div>
 <div class="container-fluid">
-    <div class="row ">
+    <div class="row containerComic">
 
         <div class="col-12 col-sm-3 col-md-5 p-3 comics">
             <h2 class=" text-center ">Listar cómics</h2>
             <button class="btn btn-primary w-100 bg-dark" onclick="listComics()">Cargar Cómics</button>
             <ul  id="comicList"></ul>
-
         </div>
         <main class=" navbar col-12 col-sm-9 col-md-7 p-4">
             
-            
+                <h2>Administrar comics</h2>
                 <div class=" row">
-                    <form class=" formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
+                    <div class=" formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
                         <h2>Crear cómic</h2>
                         <input type="text" id="nameComic" placeholder="Nombre del cómic">
                         <input type="number" id="editionComic" placeholder="Ediciones">
@@ -42,9 +41,9 @@
                         <input type="number" id="price" placeholder="Precio">
                         <button class="btn btn-primary w-100 bg-dark" onclick="createComic()">Crear</button>
     
-                    </form>
+                    </div>
     
-                    <form class="formulario  col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
+                    <div class="formulario  col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
                         <h2>Actualizar cómic</h2>
                         <input type="text" id="comicId" placeholder="ID del cómic">
                         <input type="text" id="updateNameComic" placeholder="Nombre del cómic">
@@ -54,30 +53,30 @@
                         <input type="number" id="updatePrice" placeholder="Precio">
                         <button class="btn btn-primary w-100 bg-dark" onclick="updateComic()">Actualizar</button>
     
-                    </form>
-                    <form class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
+                    </div>
+                    <div class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
                         <h2>Eliminar cómic</h2>
                         <input type="text" id="deleteComicId" placeholder="ID del cómic">
                         <button class="btn btn-primary w-100 bg-dark" onclick="deleteComic()">Eliminar</button>
-                    </form>
+                    </div>
                     
-                
-                    <form class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
+                    <h2>COMPRA  </h2>
+                    <div class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
                         <h2>Crear Compra</h2>
                         <input type="text" id="nameClient" placeholder="Nombre del cliente">
                         <input type="text" id="meansPayment" placeholder="Método de pago">
                         <button class=" btn btn-primary bg-dark"  onclick="createBuy()">Crear Compra</button>
                         <p id="buyIdDisplay"></p>
                         
-                    </form>
-                    <form class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 " >
+                    </div>
+                    <div class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 " >
                         <h2>Listar Compra</h2>
                         <input type="text" id="buyId" placeholder="ID de la compra">
                         <button class=" btn btn-primary bg-dark" onclick="listBuy()">Ver Compra</button>
                         <ul id="buyList"></ul>
                 
-                    </form>
-                    <form class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 " >
+                    </div>
+                    <div class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 " >
                         <h2>Agregar Cómic a Compra</h2>
                         <input type="text" id="buyIdAdd" placeholder="ID de la compra">
                         <input type="text" id="comicIdAdd" placeholder="ID del cómic">
@@ -85,14 +84,14 @@
                         <button class=" btn btn-primary bg-dark" onclick="addComicToBuy()">Agregar Cómic a Compra</button>
                         <p id="addComicResult"></p>
                        
-                    </form>
-                    <form class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
+                    </div>
+                    <div class="formulario col-6 col-md-3 col-lg-4 mb-3 producto m-md-0 m-lg-4 ">
                         <h2>Eliminar Cómic de Compra</h2>
                         <input type="text" id="buyIdDelete" placeholder="ID de la compra">
                         <input type="text" id="comicIdDelete" placeholder="ID del cómic">
                         <button class=" btn btn-primary bg-dark" onclick="deleteComicFromBuy()">Eliminar Cómic de Compra</button>
                         <p id="deleteComicResult"></p>  
-                    </form>
+                    </div>
                 </div>
             
             
