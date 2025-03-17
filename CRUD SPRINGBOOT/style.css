@@ -74,3 +74,9 @@ li{
 #comicList{
     margin: 10px;
 }
+.cajaDespliegue{
+    box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    
+}
