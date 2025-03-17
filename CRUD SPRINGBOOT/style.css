@@ -1,0 +1,76 @@
+.header{
+    background-color: rgb(129, 16, 16);
+    height: 100px;
+    margin: 0 auto;
+    color: white; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.prodcuto{
+    background-color: rgb(151, 151, 151);
+}
+form{
+    width: 80%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    -webkit-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+}
+input{
+    margin: 2%;
+}
+.formulario{
+    margin: 100px;
+}
+li{
+    margin: 10px;
+    -webkit-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+.comics{
+   
+}
+.comic-item{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    box-shadow: -2px 11px 29px -17px rgba(0,0,0,0.75);
+    transition: transform 0.3s;
+}
+.comic-item p{
+    margin-bottom: 2px;
+}
+.comic-item:hover {
+    
+    box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 34px -14px rgba(0,0,0,0.75);
+    transform: scale(1.1);
+  }
+
+.imageExample{
+    width: 100%; /* Ancho deseado */
+    height: 80px; /* Alto deseado */
+    background-color: #ddd; /* Color de fondo gris */
+    border: 2px dashed #999; /* Borde punteado para indicar imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+}
+#comicList{
+    margin: 10px;
+}

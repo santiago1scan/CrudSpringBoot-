@@ -6,9 +6,23 @@ async function listComics() {
     const comics = await response.json();
     const list = document.getElementById('comicList');
     list.innerHTML = '';
+
     comics.forEach(comic => {
-        let item = document.createElement('li');
-        item.textContent = `ID: ${comic.idComic} - Nombre: ${comic.nameComic} - Edición: ${comic.editionComic} - Descripción: ${comic.descriptionComic} - Fecha de Publicación: ${comic.publishDate} - Precio: ${comic.price}`;
+        let item = document.createElement('div');
+        item.classList.add('comic-item');
+
+        item.innerHTML = `
+            <div class="imageExample">
+                <p>imagen comic 50x200</p>
+            </div>
+            <p class="comic-id">ID: <span>${comic.idComic}</span></p>
+            <p class="comic-name">Nombre: <span>${comic.nameComic}</span></p>
+            <p class="comic-edition">Edición: <span>${comic.editionComic}</span></p>
+            <p class="comic-description">Descripción: <span>${comic.descriptionComic}</span></p>
+            <p class="comic-date">Fecha de Publicación: <span>${comic.publishDate}</span></p>
+            <p class="comic-price">Precio: $<span>${comic.price}</span></p>
+        `;
+
         list.appendChild(item);
     });
 }
